@@ -3,13 +3,6 @@ import Link from "next/link";
 import { getLastPost } from "@/lib/api";
 import PostList from "@/components/PostList";
 
-type Post = {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-};
-
 export default async function Home() {
   const posts = await getLastPost();
 
@@ -25,6 +18,7 @@ export default async function Home() {
         </p>
       </div>
 
-    <PostsList posts={posts} />
+      <PostList posts={posts} />
+    </div>
   );
 }
