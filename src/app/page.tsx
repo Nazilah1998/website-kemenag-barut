@@ -1,0 +1,30 @@
+import Image from "next/image";
+import Link from "next/link";
+import { getLastPost } from "@/lib/api";
+import PostList from "@/components/PostList";
+
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+};
+
+export default async function Home() {
+  const posts = await getLastPost();
+
+  return (
+    <div className="max-w-4xl mx-auto px-6 py-10">
+      <div className="main-heading text-center">
+        <h1 className="text-4xl font-bold">Welcome to My News App</h1>
+        <p className="subtitle text-justify mt-4 max-w-3xl mx-auto">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
+          nostrum debitis dolorem dignissimos est, possimus, sunt nesciunt sed
+          at cumque reprehenderit autem voluptate quidem in eveniet illo,
+          dolores harum molestias!
+        </p>
+      </div>
+
+    <PostsList posts={posts} />
+  );
+}
