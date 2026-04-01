@@ -1,4 +1,12 @@
 import Link from "next/link";
+
+import PostLiskProps {
+  posts: []
+}
+
+function PostsList({posts}:PostLiskProps) {
+  
+}
 function PostList(props) {
   const { posts } = props; 
   return (
